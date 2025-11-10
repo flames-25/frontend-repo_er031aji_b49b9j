@@ -1,10 +1,11 @@
-import { Home, Target, WalletCards } from "lucide-react";
+import { Home, Target, WalletCards, MessageSquare } from "lucide-react";
 
 export default function Tabs({ current, onChange }) {
   const items = [
     { key: "overview", label: "Overview", icon: Home },
     { key: "budgets", label: "Budgets", icon: WalletCards },
     { key: "goals", label: "Goals", icon: Target },
+    { key: "chat", label: "AI Chat", icon: MessageSquare },
   ];
 
   return (
