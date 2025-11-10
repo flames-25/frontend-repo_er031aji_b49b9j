@@ -9,6 +9,7 @@ import Overview from "./components/Overview";
 import Budgets from "./components/Budgets";
 import Goals from "./components/Goals";
 import Chatbot from "./components/Chatbot";
+import Settings from "./components/Settings";
 
 export default function App() {
   // App-level state
@@ -78,12 +79,13 @@ export default function App() {
   // App dashboard UI
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
-      <Navbar onOpenChat={() => setTab("chat")} />
+      <Navbar onOpenChat={() => setTab("chat")} onOpenSettings={() => setTab("settings")} />
       <Tabs current={tab} onChange={setTab} />
       {tab === "overview" && <Overview />}
       {tab === "budgets" && <Budgets />}
       {tab === "goals" && <Goals />}
       {tab === "chat" && <Chatbot />}
+      {tab === "settings" && <Settings />}
     </div>
   );
 }
