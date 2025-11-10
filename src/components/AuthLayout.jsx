@@ -1,10 +1,10 @@
 import { useState } from "react";
-import AuthHeader from "./components/AuthHeader";
-import LoginForm from "./components/LoginForm";
-import SignupForm from "./components/SignupForm";
-import MarketingAside from "./components/MarketingAside";
+import AuthHeader from "./AuthHeader";
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
+import MarketingAside from "./MarketingAside";
 
-export default function App() {
+export default function AuthLayout() {
   const [mode, setMode] = useState("login"); // 'login' | 'signup'
 
   return (
