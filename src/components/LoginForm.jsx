@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Eye, EyeOff, Loader2, Lock, User } from "lucide-react";
 
-export default function LoginForm() {
+export default function LoginForm({ onSuccess }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
@@ -13,11 +13,10 @@ export default function LoginForm() {
     setError("");
     setLoading(true);
     try {
-      // Simulate request
       await new Promise((res) => setTimeout(res, 900));
       if (!email || !password) throw new Error("Please enter email and password");
-      // Successful login simulation
-      alert("Signed in! This demo doesn't persist yet.");
+      // On successful login, notify parent to navigate to dashboard
+      if (typeof onSuccess === "function") onSuccess();
     } catch (err) {
       setError(err.message || "Sign-in failed");
     } finally {
@@ -72,7 +71,7 @@ export default function LoginForm() {
             onClick={() => setShow((s) => !s)}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
             aria-label={show ? "Hide password" : "Show password"}
-          >
+         >
             {show ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
           </button>
         </div>
